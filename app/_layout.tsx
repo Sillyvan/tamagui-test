@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { TamaguiProvider } from 'tamagui';
 
 import config from '../tamagui.config';
+import { BarcodeDataProvider } from './BarcodeDataContext';
 
 export default function Layout() {
   const [loaded] = useFonts({
@@ -21,7 +22,9 @@ export default function Layout() {
 
   return (
     <TamaguiProvider config={config}>
-      <Stack />
+      <BarcodeDataProvider>
+        <Stack />
+      </BarcodeDataProvider>
     </TamaguiProvider>
   );
 }

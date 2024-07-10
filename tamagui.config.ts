@@ -2,9 +2,8 @@ import { createAnimations } from '@tamagui/animations-react-native';
 import { createInterFont } from '@tamagui/font-inter';
 import { createMedia } from '@tamagui/react-native-media-driver';
 import { shorthands } from '@tamagui/shorthands';
-import { themes, tokens } from '@tamagui/themes';
+import { tokens, themes } from '@tamagui/themes';
 import { createTamagui, styled, SizableText, H1, YStack, Button as ButtonTamagui } from 'tamagui';
-
 const animations = createAnimations({
   bouncy: {
     damping: 10,
@@ -77,23 +76,21 @@ export const Button = styled(ButtonTamagui, {
 });
 
 const config = createTamagui({
-  light: {
-    color: {
-      background: 'gray',
-      text: 'black',
-    },
-  },
+  themes,
   defaultFont: 'body',
   animations,
-  shouldAddPrefersColorThemes: true,
-  themeClassNameOnRoot: true,
   shorthands,
+  userInterfaceStyle: 'automatic',
   fonts: {
     body: bodyFont,
     heading: headingFont,
   },
-  themes,
-  tokens,
+  tokens: {
+    ...tokens,
+    fontSize: {
+      large: '24px', // or whatever value you intend for "large"
+    },
+  },
   media: createMedia({
     xs: { maxWidth: 660 },
     sm: { maxWidth: 800 },

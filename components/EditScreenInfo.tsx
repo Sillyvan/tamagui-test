@@ -1,4 +1,4 @@
-import { YStack, H4, Paragraph } from 'tamagui';
+import { YStack, H4, Paragraph, Theme } from 'tamagui';
 
 export const EditScreenInfo = ({ path }: { path: string }) => {
   const title = 'Open up the code for this screen:';
